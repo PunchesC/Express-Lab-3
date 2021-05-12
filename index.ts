@@ -16,5 +16,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use("/", homeRoutes);
 app.use("/",apiRoutes)
 
+
 const port = 2500;
 app.listen(port, ()=> console.log('Listening on port: ' +port))

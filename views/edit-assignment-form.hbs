@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Edit Assignment</title>
 </head>
 <body>
   	<h1>Edit Assignments</h1>
  
-	<form action="/edit/edit-result" method="post">
+	<form action="/edit?id={{assignment.id}}" method="post">
 		<p>
 			<label for="name">Assignment Name</label>
 			<input name="name" value="{{assignment.name}}"  required />
@@ -23,13 +23,15 @@
 			<input name="total" value="{{assignment.total}}" type="number"\/>
 		</p>
     
-    {{#if completed}}
+     {{#if completed}}checked
+    {{/if}}
       	<p>
 			<label for="completed">Completed</label>
-			<input name="completed" value="{{assignment.completed}}" type="checkbox" />
+			<input name="completed" type="checkbox" 	  {{#if assignment.completed}}checked
+    {{/if}}  />
+		
 		</p>
-    
-    {{/if}}
+     
 
 		<p>
 			<button type="submit">Save</button> 

@@ -57,10 +57,10 @@ routes.get("/edit", (req,res)=>{
   
   res.render("edit-assignment-form", {assignment})
 });
-
-routes.post('/edit-result', (req,res)=>{
+//What is the url need to access /edit?id=3
+routes.post("/edit", (req,res)=>{
   const assignment: Assignment ={
-    id: parseInt(req.params.id),
+    id: parseInt(req.query.id as string),
     name: req.body.name,
     score: parseInt(req.body.score),
     total: parseInt(req.body.total),
@@ -70,6 +70,7 @@ routes.post('/edit-result', (req,res)=>{
     res.render('edit-result', {assignment})
   }else {
   res.status(404);
+  res.send("NOT FOund");
 }
 });
 
