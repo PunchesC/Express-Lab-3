@@ -3,7 +3,7 @@ import {assignments} from "../model/assignment-database"
 
 const routes = express.Router();
 
-routes.get("/api/assignment",(req,res)=>{
+routes.get("/api/assignments",(req,res)=>{
   res.json(assignments)
   res.status(200);
 });

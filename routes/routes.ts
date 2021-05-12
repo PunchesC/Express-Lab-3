@@ -5,7 +5,24 @@ import {assignments, pushAssignment, readAssignmentById, deleteAssignment, updat
 const routes = express.Router();
 
 routes.get('/', (req, res) => {
-  res.render('homepage', {assignments});
+  let myScore = 0;
+  let totalPossible =0;
+  
+  
+  for(let i=0; i<assignments.length; i++){
+    if(assignments[i].completed==true){
+    myScore +=assignments[i].score;
+    console.log(i);
+    // totalPossible +=assignments[i].total;
+  }
+  }
+  for(let assignment of assignments){
+    if(assignment.completed==true)
+   totalPossible += assignment.total;
+  }
+  let averagePercentage = (myScore/totalPossible)
+  res.render('homepage', {assignments,averagePercentage});
+
 });
 
 routes.get("/add",(req,res)=>{
