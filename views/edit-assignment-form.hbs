@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  	<h1>Edit Assignments</h1>
+
+	<form "/edit/edit-result" method="post">
+		<p>
+			<label for="name">Assignment Name</label>
+			<input name="name" value="{{assignment.name}}"  required />
+		</p>
+		<p>
+			<label for="score">Score</label>
+			<input name="score" value="{{assignment.score}}" type="number"  />
+		</p>
+    	<p>
+			<label for="total">Total</label>
+			<input name="total" value="{{assignment.total}}" type="number"\/>
+		</p>
+    
+    {{#if completed}}
+      	<p>
+			<label for="completed">Completed</label>
+			<input name="completed" value="{{assignment.completed}}" type="checkbox" />
+		</p>
+    
+    {{/if}}
+
+		<p>
+			<button type="submit">Save</button> 
+			<a href="/">Never Mind</a>
+		</p>
+	</form>
+
+
+
+
+
+
+
+
+
+  {{!-- <h1>Edit an Assignment</h1>
+  <form method="post" >
+  {{#with assignment}}
+  <label for="name">Assignment Name:</label>
+ <input type="text" name="name" value={{name}}>
+  <label for="score">Your score:</label>
+  <input type="number" name="score" value="{{score}}">
+  <label for="total">Total Possible Score:</label>
+  <input type="number" name="total" value="{{total}}">
+   <label for="completed">Have you completed this assignment</label>
+  <input type="checkbox" name="completed" value="{{checked}}">
+  {{/with}}
+  <button type="submit">Submit</button>
+  <a href="/">Never Mind</a>
+  </form> --}}
+</body>
+</html>
